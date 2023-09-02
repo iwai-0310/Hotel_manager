@@ -1,0 +1,31 @@
+<!-- <p>rooms works!</p>
+<h1 [ngStyle]="{color:'red'}">Welcome to {{hotelName}}</h1> -->
+<!-- <app-header></app-header>
+<app-header></app-header>
+<app-header></app-header> -->
+<!-- <div [hidden]="hideRooms">
+    <div [innerText]="NumberOfRooms"></div>
+</div> -->
+<!-- {{rooms$ | async |json}} -->
+<!-- {{roomList | json}} -->
+<div *ngIf="selectedRoom">{{selectedRoom | json}} </div>
+<div *ngIf="rooms$ | async as rooms">
+    <app-rooms-list [rooms]="rooms" [title]="title" (selectedRoom)="selectRoom($event)">
+
+    </app-rooms-list>
+
+
+</div>
+<div>
+    <button class="btn btn-success" routerLink="add">Add Room</button>
+</div>
+<!-- <h1>{{getError$ | async}}</h1> -->
+<h1>
+        Number of rooms:{{roomsCount$ | async}}
+</h1>
+<button (click)="toggle()">Toggle</button>
+<button (click)="editRoom()">EDIT</button>
+<button (click)="deleteRoom()">DELETE</button>
+<h2>{{totalBytes}} loaded</h2>
+
+<router-outlet></router-outlet>
